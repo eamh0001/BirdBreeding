@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.eamh.birdbreeding.R;
 import com.eamh.birdbreeding.data.dummy.DummyPuesta;
-import com.eamh.birdbreeding.data.models.Puesta;
+import com.eamh.birdbreeding.data.models.LayEgg;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -97,6 +97,6 @@ public class BreedDetailsFragment extends Fragment {
     }
 
     public interface OnBreedFragmentInteractionListener {
-        void onPuestaListClicked(Puesta puesta);
+        void onPuestaListClicked(LayEgg layEgg);
     }
 }

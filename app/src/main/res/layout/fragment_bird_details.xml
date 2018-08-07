@@ -22,7 +22,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -39,13 +39,20 @@
 
                         <Spinner
                             android:id="@+id/spGenre"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/genres" />
 
-                        <Spinner
-                            android:id="@+id/spStatus"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/btnTakePhoto"
+                            android:layout_width="@dimen/icon_size"
+                            android:layout_height="@dimen/icon_size"
+                            android:background="@drawable/camera" />
                     </LinearLayout>
                 </LinearLayout>
 

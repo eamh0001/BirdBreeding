@@ -43,7 +43,7 @@ public class DummyBreed {
         breed.set_id(position);
         breed.set_idMaleProgenitor(position);
         breed.set_idFemaleProgenitor(position);
-        breed.setPuestas(DummyPuesta.ITEMS);
+        breed.setLayEggs(DummyPuesta.ITEMS);
         return breed;
     }
 }

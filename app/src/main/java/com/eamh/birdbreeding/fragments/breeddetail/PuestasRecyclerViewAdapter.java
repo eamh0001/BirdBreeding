@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 import com.eamh.birdbreeding.R;
 import com.eamh.birdbreeding.data.models.Bird;
-import com.eamh.birdbreeding.data.models.BirdBaby;
-import com.eamh.birdbreeding.data.models.Puesta;
-import com.eamh.birdbreeding.data.models.PuestaItem;
+import com.eamh.birdbreeding.data.models.Chick;
+import com.eamh.birdbreeding.data.models.LayEgg;
+import com.eamh.birdbreeding.data.models.LayEggItem;
 import com.eamh.birdbreeding.fragments.birds.BirdsFragment.OnBirdsFragmentInteractionListener;
 
 import java.util.List;
@@ -23,11 +23,11 @@ import java.util.List;
  */
 public class PuestasRecyclerViewAdapter extends RecyclerView.Adapter<PuestasRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Puesta> puestas;
+    private final List<LayEgg> layEggs;
     private final BreedDetailsFragment.OnBreedFragmentInteractionListener mListener;
 
-    public PuestasRecyclerViewAdapter(List<Puesta> items, BreedDetailsFragment.OnBreedFragmentInteractionListener listener) {
-        puestas = items;
+    public PuestasRecyclerViewAdapter(List<LayEgg> items, BreedDetailsFragment.OnBreedFragmentInteractionListener listener) {
+        layEggs = items;
         mListener = listener;
     }
 
@@ -41,10 +41,10 @@ public class PuestasRecyclerViewAdapter extends RecyclerView.Adapter<PuestasRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Context context = holder.mView.getContext();
-        final Puesta puesta = puestas.get(position);
-        holder.tvStartDate.setText(DateUtils.formatDateTime(context, puesta.getPuestaDate().getTime(), DateUtils.FORMAT_NUMERIC_DATE));
-        holder.tvJaulaNumber.setText(String.valueOf(puesta.getJaulaNumber()));
-        int[] totalEggs = computeTotalAndSuccessfulEggs(puesta);
+        final LayEgg layEgg = layEggs.get(position);
+        holder.tvStartDate.setText(DateUtils.formatDateTime(context, layEgg.getPuestaDate().getTime(), DateUtils.FORMAT_NUMERIC_DATE));
+        holder.tvJaulaNumber.setText(String.valueOf(layEgg.getJaulaNumber()));
+        int[] totalEggs = computeTotalAndSuccessfulEggs(layEgg);
         holder.tvEggsSuccess.setText(context.getString(R.string.format_eggs_success, totalEggs[0], totalEggs[1]));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -53,21 +53,21 @@ public class PuestasRecyclerViewAdapter extends RecyclerView.Adapter<PuestasRecy
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onPuestaListClicked(puesta);
+                    mListener.onPuestaListClicked(layEgg);
                 }
             }
         });
     }
 
-    private int[] computeTotalAndSuccessfulEggs(Puesta puesta) {
+    private int[] computeTotalAndSuccessfulEggs(LayEgg layEgg) {
         int[] puestaRatioInfo = new int[2];
-        if (puesta != null) {
-            int totalEggs = puesta.getPuestaItems().size();
+        if (layEgg != null) {
+            int totalEggs = layEgg.getLayEggItems().size();
             int successfulEggs = 0;
 
-            for (PuestaItem puestaItem : puesta.getPuestaItems()) {
-                BirdBaby birdBaby = puestaItem.getBirdBaby();
-                if (birdBaby != null && !birdBaby.isDead()) {
+            for (LayEggItem layEggItem : layEgg.getLayEggItems()) {
+                Chick chick = layEggItem.getChick();
+                if (chick != null && !chick.isDead()) {
                     successfulEggs++;
                 }
             }
@@ -79,7 +79,7 @@ public class PuestasRecyclerViewAdapter extends RecyclerView.Adapter<PuestasRecy
 
     @Override
     public int getItemCount() {
-        return puestas.size();
+        return layEggs.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

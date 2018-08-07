@@ -1,6 +1,6 @@
 package com.eamh.birdbreeding.data.models;
 
-public class PuestaItem {
+public class LayEggItem {
 
     private Long _id;
     private Long _idEgg;
@@ -8,7 +8,7 @@ public class PuestaItem {
     private Long _idGrowBird;
 
     private Egg egg;
-    private BirdBaby birdBaby;
+    private Chick chick;
     private Bird birdGrow;
 
     public Egg getEgg() {
@@ -19,12 +19,12 @@ public class PuestaItem {
         this.egg = egg;
     }
 
-    public BirdBaby getBirdBaby() {
-        return birdBaby;
+    public Chick getChick() {
+        return chick;
     }
 
-    public void setBirdBaby(BirdBaby birdBaby) {
-        this.birdBaby = birdBaby;
+    public void setChick(Chick chick) {
+        this.chick = chick;
     }
 
     public Bird getBirdGrow() {
@@ -69,13 +69,13 @@ public class PuestaItem {
 
     @Override
     public String toString() {
-        return "PuestaItem{" +
+        return "LayEggItem{" +
                 "_id=" + _id +
                 ", _idEgg=" + _idEgg +
                 ", _idBabyBird=" + _idBabyBird +
                 ", _idGrowBird=" + _idGrowBird +
                 ", egg=" + egg +
-                ", birdBaby=" + birdBaby +
+                ", chick=" + chick +
                 ", birdGrow=" + birdGrow +
                 '}';
     }

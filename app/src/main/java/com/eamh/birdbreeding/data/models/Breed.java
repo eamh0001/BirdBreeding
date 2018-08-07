@@ -8,7 +8,7 @@ public class Breed {
     private long _idMaleProgenitor;
     private long _idFemaleProgenitor;
 
-    private List<Puesta> puestas;
+    private List<LayEgg> layEggs;
 
     public long get_id() {
         return _id;
@@ -34,12 +34,12 @@ public class Breed {
         this._idFemaleProgenitor = _idFemaleProgenitor;
     }
 
-    public List<Puesta> getPuestas() {
-        return puestas;
+    public List<LayEgg> getLayEggs() {
+        return layEggs;
     }
 
-    public void setPuestas(List<Puesta> puestas) {
-        this.puestas = puestas;
+    public void setLayEggs(List<LayEgg> layEggs) {
+        this.layEggs = layEggs;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class Breed {
                 "_id=" + _id +
                 ", _idMaleProgenitor=" + _idMaleProgenitor +
                 ", _idFemaleProgenitor=" + _idFemaleProgenitor +
-                ", puestas=" + puestas +
+                ", layEggs=" + layEggs +
                 '}';
     }
 }

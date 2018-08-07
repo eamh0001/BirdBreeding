@@ -7,22 +7,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.eamh.birdbreeding.R;
-import com.eamh.birdbreeding.data.models.PuestaItem;
+import com.eamh.birdbreeding.data.models.LayEggItem;
 import com.eamh.birdbreeding.fragments.breeds.BreedsFragment.OnBreedFragmentInteractionListener;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link PuestaItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link LayEggItem} and makes a call to the
  * specified {@link OnBreedFragmentInteractionListener}.
  */
 public class PuestaItemRecyclerViewAdapter extends RecyclerView.Adapter<PuestaItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<PuestaItem> puestaItems;
+    private final List<LayEggItem> layEggItems;
     private final PuestaItemRecyclerViewListener mListener;
 
-    public PuestaItemRecyclerViewAdapter(List<PuestaItem> items, PuestaItemRecyclerViewListener listener) {
-        puestaItems = items;
+    public PuestaItemRecyclerViewAdapter(List<LayEggItem> items, PuestaItemRecyclerViewListener listener) {
+        layEggItems = items;
         mListener = listener;
     }
 
@@ -35,8 +35,8 @@ public class PuestaItemRecyclerViewAdapter extends RecyclerView.Adapter<PuestaIt
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        final PuestaItem puestaItem = puestaItems.get(position);
-        holder.mImageView.setImageResource(getColorByType(puestaItem));
+        final LayEggItem layEggItem = layEggItems.get(position);
+        holder.mImageView.setImageResource(getColorByType(layEggItem));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,23 +44,23 @@ public class PuestaItemRecyclerViewAdapter extends RecyclerView.Adapter<PuestaIt
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onPuestaItemClicked(puestaItem);
+                    mListener.onPuestaItemClicked(layEggItem);
                 }
             }
         });
     }
 
-    private int getColorByType(PuestaItem puestaItem) {
-        return puestaItem.get_id() % 2 == 0 ? R.color.colorAccent : R.color.colorPrimary;
+    private int getColorByType(LayEggItem layEggItem) {
+        return layEggItem.get_id() % 2 == 0 ? R.color.colorAccent : R.color.colorPrimary;
     }
 
     @Override
     public int getItemCount() {
-        return puestaItems.size();
+        return layEggItems.size();
     }
 
     public interface PuestaItemRecyclerViewListener {
-        void onPuestaItemClicked(PuestaItem puestaItem);
+        void onPuestaItemClicked(LayEggItem layEggItem);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

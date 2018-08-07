@@ -1,6 +1,6 @@
 package com.eamh.birdbreeding.data.dummy;
 
-import com.eamh.birdbreeding.data.models.PuestaItem;
+import com.eamh.birdbreeding.data.models.LayEggItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,12 +17,12 @@ public class DummyPuestaItem {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<PuestaItem> ITEMS = new ArrayList<>();
+    public static final List<LayEggItem> ITEMS = new ArrayList<>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, PuestaItem> ITEM_MAP = new HashMap<>();
+    public static final Map<String, LayEggItem> ITEM_MAP = new HashMap<>();
 
     private static final int COUNT = 25;
 
@@ -33,17 +33,17 @@ public class DummyPuestaItem {
         }
     }
 
-    private static void addItem(PuestaItem item) {
+    private static void addItem(LayEggItem item) {
         ITEMS.add(item);
         ITEM_MAP.put("" + item.get_id(), item);
     }
 
-    public static PuestaItem createDummyItem(int position) {
-        PuestaItem puestaItem = new PuestaItem();
-        puestaItem.set_id((long) position);
-        puestaItem.setEgg(DummyEgg.createDummyItem(position));
-        puestaItem.setBirdBaby(DummyBirdBaby.createDummyItem(position));
-        puestaItem.setBirdGrow(DummyBird.createDummyItem(position));
-        return puestaItem;
+    public static LayEggItem createDummyItem(int position) {
+        LayEggItem layEggItem = new LayEggItem();
+        layEggItem.set_id((long) position);
+        layEggItem.setEgg(DummyEgg.createDummyItem(position));
+        layEggItem.setChick(DummyBirdBaby.createDummyItem(position));
+        layEggItem.setBirdGrow(DummyBird.createDummyItem(position));
+        return layEggItem;
     }
 }

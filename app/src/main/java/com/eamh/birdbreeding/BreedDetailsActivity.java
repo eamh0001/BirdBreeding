@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import com.eamh.birdbreeding.data.models.Puesta;
+import com.eamh.birdbreeding.data.models.LayEgg;
 import com.eamh.birdbreeding.fragments.breeddetail.BreedDetailsFragment;
 
 public class BreedDetailsActivity extends AppCompatActivity
@@ -20,11 +20,11 @@ public class BreedDetailsActivity extends AppCompatActivity
     }
 
     @Override
-    public void onPuestaListClicked(Puesta puesta) {
-        launchPuestaDetails(puesta);
+    public void onPuestaListClicked(LayEgg layEgg) {
+        launchPuestaDetails(layEgg);
     }
 
-    private void launchPuestaDetails(Puesta puesta) {
+    private void launchPuestaDetails(LayEgg layEgg) {
         Intent intent = new Intent(this, PuestaDetailsActivity.class);
         startActivity(intent);
     }

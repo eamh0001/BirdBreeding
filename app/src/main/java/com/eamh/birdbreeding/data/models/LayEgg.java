@@ -3,13 +3,13 @@ package com.eamh.birdbreeding.data.models;
 import java.util.Date;
 import java.util.List;
 
-public class Puesta {
+public class LayEgg {
 
     private Long _id;
     private Long _idBreeding;
     private int jaulaNumber;
     private Date puestaDate;
-    private List<PuestaItem> puestaItems;
+    private List<LayEggItem> layEggItems;
 
     public Long get_id() {
         return _id;
@@ -43,22 +43,22 @@ public class Puesta {
         this.puestaDate = puestaDate;
     }
 
-    public List<PuestaItem> getPuestaItems() {
-        return puestaItems;
+    public List<LayEggItem> getLayEggItems() {
+        return layEggItems;
     }
 
-    public void setPuestaItems(List<PuestaItem> puestaItems) {
-        this.puestaItems = puestaItems;
+    public void setLayEggItems(List<LayEggItem> layEggItems) {
+        this.layEggItems = layEggItems;
     }
 
     @Override
     public String toString() {
-        return "Puesta{" +
+        return "LayEgg{" +
                 "_id=" + _id +
                 ", _idBreeding=" + _idBreeding +
                 ", jaulaNumber=" + jaulaNumber +
                 ", puestaDate=" + puestaDate +
-                ", puestaItems=" + puestaItems +
+                ", layEggItems=" + layEggItems +
                 '}';
     }
 }

@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.eamh.birdbreeding.R;
 import com.eamh.birdbreeding.data.dummy.DummyPuestaItem;
-import com.eamh.birdbreeding.data.models.PuestaItem;
+import com.eamh.birdbreeding.data.models.LayEggItem;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -116,7 +116,7 @@ public class PuestaFragment extends Fragment
     }
 
     @Override
-    public void onPuestaItemClicked(PuestaItem puestaItem) {
+    public void onPuestaItemClicked(LayEggItem layEggItem) {
 
     }
 

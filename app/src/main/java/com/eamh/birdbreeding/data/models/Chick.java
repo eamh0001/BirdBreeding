@@ -2,7 +2,7 @@ package com.eamh.birdbreeding.data.models;
 
 import java.util.Date;
 
-public class BirdBaby {
+public class Chick {
 
     private Long _id;
     private Date birthDate;

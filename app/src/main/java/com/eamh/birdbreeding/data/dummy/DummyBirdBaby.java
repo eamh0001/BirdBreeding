@@ -1,6 +1,6 @@
 package com.eamh.birdbreeding.data.dummy;
 
-import com.eamh.birdbreeding.data.models.BirdBaby;
+import com.eamh.birdbreeding.data.models.Chick;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,12 +18,12 @@ public class DummyBirdBaby {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<BirdBaby> ITEMS = new ArrayList<>();
+    public static final List<Chick> ITEMS = new ArrayList<>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, BirdBaby> ITEM_MAP = new HashMap<>();
+    public static final Map<String, Chick> ITEM_MAP = new HashMap<>();
 
     private static final int COUNT = 25;
 
@@ -34,17 +34,17 @@ public class DummyBirdBaby {
         }
     }
 
-    private static void addItem(BirdBaby item) {
+    private static void addItem(Chick item) {
         ITEMS.add(item);
         ITEM_MAP.put("" + item.get_id(), item);
     }
 
-    public static BirdBaby createDummyItem(int position) {
-        BirdBaby birdBaby = new BirdBaby();
-        birdBaby.set_id((long) position);
-        birdBaby.setBirthDate(new Date());
-        birdBaby.setAnillaDate(new Date());
-        birdBaby.setDead(false);
-        return birdBaby;
+    public static Chick createDummyItem(int position) {
+        Chick chick = new Chick();
+        chick.set_id((long) position);
+        chick.setBirthDate(new Date());
+        chick.setAnillaDate(new Date());
+        chick.setDead(false);
+        return chick;
     }
 }
